@@ -18,6 +18,8 @@ LDFLAGS  := -Wl,-rpath="$(CURDIR)" -L. -lgbit
 LIBOBJS := $(patsubst %.c,$(BDIR)/%.o,$(LIBSRC))
 BINOBJS := $(patsubst %.c,$(BDIR)/%.o,$(patsubst %.cpp,$(BDIR)/%.o,$(BINSRC)))
 
+EXTRA_LIB_OBJS ?=
+LIBOBJS += $(EXTRA_LIB_OBJS)
 
 # Verbosity control
 ifndef V
